@@ -1,12 +1,12 @@
 import requests
 
-api_url = "https://api.aifoundry.com/agents/your-agent-id"
+api_url = "https://api.aifoundry.com/agents/agent_id"
 headers = {
     'Authorization': 'Bearer YOUR_API_KEY', 
     'Content-Type': 'application/json',
 }
 data = {
-    'input_data': 'your input to the agent here'
+    'input_data': 'Multi agent investment manager'
 }
 
 response = requests.post(api_url, headers=headers, json=data)
