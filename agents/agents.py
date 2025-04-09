@@ -73,27 +73,27 @@ class BuffettOracleSkill:
             **Warren Buffett Analysis for {ticker}** (Current Price: ${analysis['current_price']:.2f}):
 
             1. ECONOMIC MOAT (Scale: 0-1): {analysis['economic_moat']:.2f} 
-            - {'✅ Strong moat (>0.7)' if analysis['economic_moat'] >= 0.7 else '⚠️ Weak moat'}
+            - {'Strong moat (>0.7)' if analysis['economic_moat'] >= 0.7 else '⚠Weak moat'}
             - Measures durable competitive advantage through brand, cost advantages, and switching costs
 
             2. MANAGEMENT QUALITY (Scale: 0-1): {analysis['management_quality']:.2f}
-            - {'✅ Excellent (>0.8)' if analysis['management_quality'] >= 0.8 else '⚠️ Needs improvement'}
+            - {'Excellent (>0.8)' if analysis['management_quality'] >= 0.8 else ' Needs improvement'}
             - Evaluates capital allocation and shareholder orientation
 
             3. PROFITABILITY (Scale: 0-1): {analysis['profitability']:.2f}
-            - {'✅ Excellent (>0.8)' if analysis['profitability'] >= 0.8 else '⚠️ Needs improvement'}
+            - {'Excellent (>0.8)' if analysis['profitability'] >= 0.8 else '⚠Needs improvement'}
             - Consistent high returns on capital
 
             4. DEBT LEVELS (Debt/Equity): {analysis['debt_levels']:.2f}
-            - {'✅ Conservative (<0.5)' if analysis['debt_levels'] <= 0.5 else '⚠️ Too leveraged'}
+            - {'Conservative (<0.5)' if analysis['debt_levels'] <= 0.5 else ' Too leveraged'}
 
             5. OWNER EARNINGS: ${analysis['owner_earnings']:,.2f} per share
             - Buffett's preferred measure of true cash generation
 
             6. MARGIN OF SAFETY: {analysis['margin_of_safety']:.2%}
-            - {'✅ Sufficient (>30%)' if analysis['margin_of_safety'] >= 0.3 else '⚠️ Insufficient'}
+            - {' Sufficient (>30%)' if analysis['margin_of_safety'] >= 0.3 else ' Insufficient'}
 
-            FINAL VERDICT: {'✅ Wonderful Company at Fair Price' if analysis['wonderful_company'] and analysis['margin_of_safety'] >= 0.3 else '⚠️ Does Not Meet Buffett Criteria'}
+            FINAL VERDICT: {'Wonderful Company at Fair Price' if analysis['wonderful_company'] and analysis['margin_of_safety'] >= 0.3 else '⚠️ Does Not Meet Buffett Criteria'}
 
             Provide detailed analysis in Buffett's style covering:
             - Business quality assessment
@@ -573,11 +573,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
-
-
-
-PortfolioManagementSkill = "asst_5OelFTllj8cE0kkT34T9jyvc"
-
-
-https://ai.azure.com/playground/agentsList?wsid=/subscriptions/d8bfc76f-5179-4d9f-9495-2c4d4d0a2164/resourceGroups/FinanceAI/providers/Microsoft.MachineLearningServices/workspaces/finance-ai-foundry&tid=d387f235-98cc-483a-8064-97e3da71d941
