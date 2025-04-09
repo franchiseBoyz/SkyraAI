@@ -329,7 +329,7 @@ class TechnicalAnalysisSkill:
             - MACD: {signals['macd']:.2f} {'(Bullish >0)' if signals['macd'] > 0 else '(Bearish <0)'}
             - 50-Day MA: ${signals['50_day_ma']:.2f}
             - 200-Day MA: ${signals['200_day_ma']:.2f}
-            - Golden Cross: {'✅ Yes' if signals['50_day_ma'] > signals['200_day_ma'] else '❌ No'}
+            - Golden Cross: {'Yes' if signals['50_day_ma'] > signals['200_day_ma'] else '❌ No'}
             - Bollinger Bands: Upper ${signals['bb_upper']:.2f} | Lower ${signals['bb_lower']:.2f}
             - Volume: Current {signals['volume_current']/1e6:.2f}M vs Avg {signals['volume_avg']/1e6:.2f}M
             
