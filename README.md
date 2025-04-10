@@ -1,5 +1,9 @@
 # 🌌 Skyra: A Smart AI-Powered Investment Manager
 
+<p align="center">
+  <img src="images/app.png" alt="Skyra App Interface" width="700"/>
+</p>
+
 **Skyra** is a multi-agent investment manager powered by AI that helps users make smarter, faster investment decisions using real-time stock data and expert-level analysis.
 
 Skyra analyzes stocks from multiple perspectives—valuation, sentiment, fundamentals, technicals, and risk—to deliver actionable insights like whether to **Buy**, **Hold**, or **Sell** a stock. It’s designed to simulate the thinking of a world-class financial team—on autopilot.
@@ -24,6 +28,10 @@ Skyra analyzes stocks from multiple perspectives—valuation, sentiment, fundame
 - 🏛️ **Built on Microsoft Fabric with Medallion Architecture**
   - Uses Bronze, Silver, and Gold layers to clean, enrich, and transform stock data.
   - Processes and stores data in a lakehouse model via Fabric Data Pipelines.
+
+<p align="center">
+  <img src="images/medallion.png" alt="Medallion Architecture" width="600"/>
+</p>
 
 - 📬 **Email Notifications and Reflex Triggers**
   - Get instant alerts when a ticker spikes or dips.
@@ -58,7 +66,7 @@ A user selects stock tickers (e.g., AAPL, MSFT)
 1. Ingests real-time data from APIs.
 2. Runs each stock through a network of agents.
 3. Each agent analyzes from their intelligent actions.
-4. Portfolio Manager compiles insights into final action
+4. Portfolio Manager compiles insights into final action.
 5. User receives an email summary:  
    _“Apple Inc. is currently undervalued with strong fundamentals. Market sentiment is bullish. Recommended action: **BUY**.”_
 
@@ -74,19 +82,26 @@ A user selects stock tickers (e.g., AAPL, MSFT)
 
 ```bash
 Skyra/
-│
-├── notebooks/
-│   └── skyra_agents.ipynb
-├── data/
-│   ├── raw/  # Bronze Layer
-│   ├── cleaned/  # Silver Layer
-│   └── enriched/  # Gold Layer
 ├── agents/
-│   ├── warren_buffett_agent.py
-│   ├── sentiment_agent.py
-│   └── ...
+│   ├── agents.py
+│   └── sdk_intergration.py
 ├── app/
 │   ├── reflex_triggers/
 │   └── notifications/
+├── data/
+│   ├── raw/          # Bronze Layer
+│   ├── cleaned/      # Silver Layer
+│   └── enriched/     # Gold Layer
+├── images/
+│   ├── app.png
+│   └── medallion.png
+├── notebooks/
+│   ├── bronze_ingestion.ipynb
+│   ├── data_streaming.ipynb
+│   ├── gold_enriched.ipynb
+│   ├── pipeline_orchestration.ipynb
+│   └── silver_ingestion.ipynb
+├── LICENSE
 ├── README.md
-└── requirements.txt
+├── SkyraPresentation.pdf
+└── SubmissionVideo.mp4
