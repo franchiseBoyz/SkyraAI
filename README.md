@@ -66,7 +66,7 @@ A user selects stock tickers (e.g., AAPL, MSFT)
 
 ## 📽️ Demo Video
 
-➡️ Watch the full system in action: [YouTube Demo Link](#)
+➡️ Watch the full system in action: [Demo Link](https://vimeo.com/1073716649/1dbbd64d25?share=copy)
 
 ---
 
