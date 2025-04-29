@@ -4,104 +4,67 @@
   <img src="images/app.png" alt="Skyra App Interface" width="700"/>
 </p>
 
-**Skyra** is a multi-agent investment manager powered by AI that helps users make smarter, faster investment decisions using real-time stock data and expert-level analysis.
-
-Skyra analyzes stocks from multiple perspectives—valuation, sentiment, fundamentals, technicals, and risk—to deliver actionable insights like whether to **Buy**, **Hold**, or **Sell** a stock. It’s designed to simulate the thinking of a world-class financial team—on autopilot.
+**Skyra** is a next-generation multi-agent investment manager powered by GPT-4o and Retrieval-Augmented Generation (RAG). Designed to act as your autonomous portfolio team, Skyra ingests live market data, applies diverse analytical lenses, and recommends actionable steps for retail or institutional investors—**Buy**, **Hold**, or **Sell**—in real time.
 
 ---
 
 ## 🚀 Features
 
-- 🔄 **Real-Time Market Data Ingestion**
-  - Integrated with Twelve Data, Alpha Vantage, and Financial Modeling Prep
-  - Supports multiple tickers for up-to-the-minute analysis
+### 🔁 Real-Time Market Intelligence
+- Live API integration (Twelve Data, Alpha Vantage, Financial Modeling Prep).
+- Automated data transformation with Microsoft Fabric (Bronze → Silver → Gold).
+- Supports real-time and batch ingestion.
 
-- 🧠 **Multi-Agent Architecture Powered by GPT-4o**
-  - **Warren Buffett Agent**: Finds wonderful companies at fair prices.
-  - **Valuation Agent**: Calculates intrinsic value and issues signals.
-  - **Sentiment Agent**: Tracks market mood from news and social platforms.
-  - **Fundamentals Agent**: Analyzes financial health of companies.
-  - **Technicals Agent**: Looks at moving averages, RSI, and more.
-  - **Risk Manager**: Sets position limits and calculates risk metrics.
-  - **Portfolio Manager**: Synthesizes all insights and gives final action.
+### 🤖 Multi-Agent Reasoning (GPT-4o + Semantic Kernel)
+Each agent specializes in a different investment strategy:
 
-- 🏛️ **Built on Microsoft Fabric with Medallion Architecture**
-  - Uses Bronze, Silver, and Gold layers to clean, enrich, and transform stock data.
-  - Processes and stores data in a lakehouse model via Fabric Data Pipelines.
+- **🧠 Warren Buffett Agent** – Value investing logic.
+- **📊 Valuation Agent** – PE, DCF, Intrinsic value.
+- **💬 Sentiment Agent** – Reddit, Twitter, news analysis.
+- **📈 Technical Agent** – RSI, MACD, Bollinger Bands.
+- **🧾 Fundamental Agent** – Balance sheet, EPS, cash flow.
+- **⚠️ Risk Manager** – Risk scoring, volatility.
+- **🧩 Portfolio Aggregator** – Compiles and ranks decisions.
 
-<p align="center">
-  <img src="images/medallion.png" alt="Medallion Architecture" width="600"/>
-</p>
+**🖼️ Add image here:** `images/agent-flow.png`  
+_> Diagram showing all agents and how data flows between them._
 
-- 📬 **Email Notifications and Reflex Triggers**
-  - Get instant alerts when a ticker spikes or dips.
-  - Automated responses and summaries generated using Semantic Kernel.
+### 🧠 RAG-Powered Insights
+- Uses **Azure Cognitive Search** + **LangChain**.
+- Retrieves analyst notes, filings, and documents.
+- Gives **context-aware decisions** backed by real documents.
 
----
+**🖼️ Add image here:** `images/rag-diagram.png`  
+_> RAG architecture: embedding, search index, grounding._
 
-## 🧩 Tech Stack
+### 🔐 Secure Credential Management
+- Credentials managed by **Azure Key Vault**
+- No hard-coded secrets – uses Managed Identity & `.env` encryption
+- Optional support for `pydantic-settings` for dev profiles
 
-- **Microsoft Fabric**
-  - EventStream
-  - Lakehouse
-  - Data Pipelines
-- **Azure AI / OpenAI GPT-4o**
-  - Used for intelligent agent completions.
-- **Semantic Kernel**
-  - Agent coordination and orchestration.
-- **Twelve Data, Alpha Vantage APIs**
-  - Real-time stock data feeds.
-- **AI Foundry**
-  - Agents management and deployment.
-- **Python & Pydantic**
-  - Data modeling and logic control.
-- **Reflex + Activations**
-  - Trigger system for automatic actions and email alerts.
+### 🏗️ Lakehouse Architecture with Microsoft Fabric
+- Full Medallion architecture:  
+  - Bronze: Raw API data  
+  - Silver: Cleaned & transformed  
+  - Gold: Final enriched datasets for agent use
 
----
+**🖼️ Add image here:** `images/medallion.png`  
+_> Fabric pipeline + Lakehouse ingestion pipeline._
 
-## 📊 Example Use Case
-
-A user selects stock tickers (e.g., AAPL, MSFT)
-1. Ingests real-time data from APIs.
-2. Runs each stock through a network of agents.
-3. Each agent analyzes from their intelligent actions.
-4. Portfolio Manager compiles insights into final action.
-5. User receives an email summary:  
-   _“Apple Inc. is currently undervalued with strong fundamentals. Market sentiment is bullish. Recommended action: **BUY**.”_
+### 📨 Reflex + Semantic Kernel Automation
+- Autonomous Reflex trigger system powered by Semantic Kernel
+- Generates AI-written summaries and email reports
+- Delivery via SMTP (SendGrid or Outlook)
 
 ---
 
-## 📽️ Demo Video
+## 📊 Example Agent Output
 
-➡️ Watch the full system in action: [Demo Link](https://vimeo.com/1073716649/1dbbd64d25?share=copy)
+```txt
+Ticker: TSLA
 
----
-
-## 📁 Folder Structure
-
-```bash
-Skyra/
-├── agents/
-│   ├── agents.py
-│   └── sdk_intergration.py
-├── app/
-│   ├── reflex_triggers/
-│   └── notifications/
-├── data/
-│   ├── raw/          # Bronze Layer
-│   ├── cleaned/      # Silver Layer
-│   └── enriched/     # Gold Layer
-├── images/
-│   ├── app.png
-│   └── medallion.png
-├── notebooks/
-│   ├── bronze_ingestion.ipynb
-│   ├── data_streaming.ipynb
-│   ├── gold_enriched.ipynb
-│   ├── pipeline_orchestration.ipynb
-│   └── silver_ingestion.ipynb
-├── LICENSE
-├── README.md
-├── SkyraPresentation.pdf
-└── SubmissionVideo.mp4
+📊 Valuation Agent: Slightly overvalued by 8%, based on DCF analysis.
+💬 Sentiment Agent: Positive spike on Twitter and analyst upgrades.
+📈 Technical Agent: RSI at 62, MACD bullish crossover.
+⚠️ Risk Agent: Volatility increasing; watch position size.
+🧩 Final Recommendation: HOLD (wait for entry point near support level).
